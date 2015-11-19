@@ -103,9 +103,9 @@ class interface(QtGui.QWidget):
                 deviceNames = self.deviceNames
             ))
         # engage stylus proximity control
-        self.stylus_proximity_control_switch(status = "on")
+        #self.stylus_proximity_control_switch(status = "on")
         # engage acceleration control
-        #self.acceleration_control_switch(status = "on")
+       	self.acceleration_control_switch(status = "on")
         # engage display position control
         self.displayPositionStatus = "laptop"
         self.display_position_control_switch(status = "on")
@@ -555,15 +555,15 @@ class interface(QtGui.QWidget):
             tableOrientations = {
                 (True,  True):  "left",
                 (True,  False): "right",
-                (False, True):  "inverted",
-                (False, False): "normal"
+                (False, True):  "normal",
+                (False, False): "inverted"
             }
             orientation = tableOrientations[(
                 abs(stableAcceleration[0]) > abs(stableAcceleration[1]),
                 stableAcceleration[0] > 0
             )]
             self.engage_mode(mode = orientation)
-            time.sleep(0.15)
+            time.sleep(3.0)
 
     def acceleration_control_switch(
         self,
